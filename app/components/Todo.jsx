@@ -3,10 +3,13 @@ var React = require('react');
 
 var Todo = React.createClass({
   render:function(){
-    var {text,id} = this.props
+    var {text,id,completed} = this.props
     return (
-      <div>
-        {id}•{text}
+      <div onClick={() => {
+          this.props.onToggle(id);
+        }}>
+        <input type="checkbox" checked={this.props.completed}/>
+        {text}
       </div>
     )
   }
